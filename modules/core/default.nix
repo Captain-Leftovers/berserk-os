@@ -31,6 +31,7 @@ in
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
+    ./expressvpn-system.nix
     inputs.stylix.nixosModules.stylix
   ];
 }

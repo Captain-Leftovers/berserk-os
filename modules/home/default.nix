@@ -21,6 +21,7 @@ in
     ./bottom.nix
     ./cava.nix
     ./emoji.nix
+    ./expressvpn.nix
     ./eza.nix
     ./fastfetch
     ./fzf.nix

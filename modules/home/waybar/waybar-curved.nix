@@ -30,6 +30,7 @@ with lib; {
           "custom/hyprbindings"
           "custom/notification"
           "custom/exit"
+          "custom/expressvpn"
           "battery"
           "tray"
           "clock"
@@ -136,6 +137,16 @@ with lib; {
           };
           tooltip = "true";
         };
+
+            #Expressvpn
+        "custom/expressvpn" = {
+          exec = "expressvpn-bar-status";
+          interval = 10;
+          return-type = "json";
+          tooltip = true;
+        };
+
+
         "custom/notification" = {
           tooltip = false;
           format = "{icon} {}";
@@ -271,6 +282,19 @@ with lib; {
           padding: 0px 15px 0px 30px;
           border-radius: 0px 0px 0px 40px;
         }
+
+
+        
+            #custom-expressvpn.connected {
+          color: #${config.lib.stylix.colors.base0B};
+
+        }
+
+        #custom-expressvpn.disconnected {
+          color: #${config.lib.stylix.colors.base08};
+        }
+
+
       ''
     ];
   };
