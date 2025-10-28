@@ -30,6 +30,8 @@
       nixpkgs,
       home-manager,
       nix-flatpak,
+      quickshell,
+      zen-browser
       ...
     }@inputs:
     let
