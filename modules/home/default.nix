@@ -51,6 +51,7 @@ in
     ./yazi
     ./zoxide.nix
     ./zsh
+    ./zen.nix
   ]
   ++ (if helixEnable then [ ./evil-helix.nix ] else [ ])
   ++ (if vscodeEnable then [ ./vscode.nix ] else [ ])
