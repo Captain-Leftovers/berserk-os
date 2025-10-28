@@ -31,7 +31,7 @@
       home-manager,
       nix-flatpak,
       quickshell,
-      zen-browser
+      zen-browser,
       ...
     }@inputs:
     let
