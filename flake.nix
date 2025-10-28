@@ -63,5 +63,6 @@
         intel = mkNixosConfig "intel";
         vm = mkNixosConfig "vm";
       };
+      
     };
 }

@@ -4,6 +4,7 @@
   ...
 }:
 {
+  pkgs.config.allowUnfree=true;
   programs = {
     neovim = {
       enable = true;
