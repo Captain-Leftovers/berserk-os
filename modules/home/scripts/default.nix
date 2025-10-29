@@ -25,5 +25,8 @@
         ".config/mimeapps.list.backup"
       ];
     })
+     (import ./toggle-kb-backlight.nix { inherit pkgs; })
+     (import ./expressvpn-bar-status.nix { inherit pkgs; })
+
   ];
 }

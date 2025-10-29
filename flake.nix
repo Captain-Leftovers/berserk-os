@@ -52,9 +52,7 @@
         modules = [
           ./profiles/${gpuProfile}
           nix-flatpak.nixosModules.nix-flatpak
-          {
-            nixpkgs.config.allowUnfree = true;
-          }
+          
         ];
       };
     in
