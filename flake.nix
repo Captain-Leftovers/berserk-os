@@ -51,8 +51,12 @@
         };
         modules = [
           ./profiles/${gpuProfile}
-          nix-flatpak.nixosModules.nix-flatpak
-          
+         nix-flatpak.nixosModules.nix-flatpak
+         {
+          nixpkgs.config.allowUnfree = true;
+          home-manager.users.${username}.nixpkgs.config.allowUnfree = true;
+  } 
+
         ];
       };
     in
