@@ -84,6 +84,7 @@
     ytmdl # Tool For Downloading Audio From YouTube
 
   
-    zed-editor
+    # Unstable channel for selectively pulling newer packages when needed.
+    nixpkgs-unstable.zed-editor
   ];
 }
