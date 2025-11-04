@@ -8,6 +8,7 @@ let
 in
 {
   wayland.windowManager.hyprland.settings = {
+
     bind = [
       "$modifier,Return,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
@@ -17,13 +18,13 @@ in
       "$modifier ALT,W,exec,wallsetter"
       "$modifier SHIFT,N,exec,swaync-client -rs"
       "$modifier,W,exec,${browser}"
-      "$modifier,Y,exec,kitty -e yazi"
+      "$modifier,Y,exec,${terminal} -e yazi"
       "$modifier,E,exec,emopicker9000"
       "$modifier,S,exec,screenshootin"
-      "$modifier,D,exec,discord"
-      "$modifier,O,exec,obs"
+      # "$modifier,D,exec,discord"
+      # "$modifier,O,exec,obs"
       "$modifier,C,exec,hyprpicker -a"
-      "$modifier,G,exec,gimp"
+      # "$modifier,G,exec,gimp"
       "$modifier shift,T,exec,pypr toggle term"
       "$modifier,T,exec, thunar"
       "$modifier,M,exec,pavucontrol"
@@ -104,5 +105,27 @@ in
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"
     ];
+
+    extraConfig = ''
+      # Switch to a submap called `resize`.
+      bind = ALT, R, submap, resize
+
+      # Start a submap called "resize".
+      submap = resize
+
+      # Set repeatable binds for resizing the active window.
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+
+      # Use `reset` to go back to the global submap
+      bind = , escape, submap, reset
+
+      # Reset the submap, which will return to the global submap
+      submap = reset
+
+      # Keybinds further down will be global again...
+    '';
   };
 }

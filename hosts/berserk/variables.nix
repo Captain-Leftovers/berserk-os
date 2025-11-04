@@ -83,7 +83,7 @@
   #stylixImage = ../../wallpapers/zaney-wallpaper.jpg;
   #stylixImage = ../../wallpapers/nix-wallpapers-strips-logo.jpg;
   #stylixImage = ../../wallpapers/beautifulmountainscape.jpg;
-  stylixImage = ../../1.png;
+  stylixImage = ../../wallpapers/1.png;
 
   # Set Waybar
   #  Available Options:
