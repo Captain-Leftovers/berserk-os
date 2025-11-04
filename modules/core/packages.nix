@@ -33,14 +33,14 @@
     # Hyprland systeminfo QT  (Optional)
     #inputs.hyprsysteminfo.packages.${pkgs.system}.default
 
-    amfora # Fancy Terminal Browser For Gemini Protocol
+    #amfora # Fancy Terminal Browser For Gemini Protocol
     appimage-run # Needed For AppImage Support
     brave # Brave Browser
     brightnessctl # For Screen Brightness Control
     cliphist # Clipboard manager using rofi menu
     cmatrix # Matrix Movie Effect In Terminal
     cowsay # Great Fun Terminal Program
-    docker-compose # Allows Controlling Docker From A Single File
+    #docker-compose # Allows Controlling Docker From A Single File
     duf # Utility For Viewing Disk Usage In Terminal
     dysk # Disk space util nice formattting
     eza # Beautiful ls Replacement
@@ -62,7 +62,15 @@
     lshw # Detailed Hardware Information
     mpv # Incredible Video Player
     ncdu # Disk Usage Analyzer With Ncurses Interface
+
+    # Nix specific
     nixfmt-rfc-style # Nix Formatter
+    nixd
+    nix-ld
+    nix-du
+    nix-init
+    nil
+
     nwg-displays # configure monitor configs via GUI
     onefetch # provides zsaneyos build info on current system
     pavucontrol # For Editing Audio Levels & Devices
@@ -78,13 +86,12 @@
     usbutils # Good Tools For USB Devices
     uwsm # Universal Wayland Session Manager (optional must be enabled)
     v4l-utils # Used For Things Like OBS Virtual Camera
-    waypaper  # wallpaper changer
+    waypaper # wallpaper changer
     warp-terminal # Terminal with AI support build in
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
 
-  
     # Unstable channel for selectively pulling newer packages when needed.
-    nixpkgs-unstable.zed-editor
+    unstable.zed-editor
   ];
 }

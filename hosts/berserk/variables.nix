@@ -35,14 +35,15 @@
     ";
 
   # Waybar Settings
-  clock24h = false;
+  clock24h = true;
 
   # Program Options
   # Set Default Browser (google-chrome-stable for google-chrome)
   # This does NOT install your browser
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
-  browser = "brave";
+  # browser = "brave";
+  browser = "zen";
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity
@@ -75,13 +76,14 @@
   # This will set your color palette
   # Default background
   # Add new images to ~/zaneyos/wallpapers
-  stylixImage = ../../wallpapers/mountainscapedark.jpg;
-  #stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
-  #stylixImage = ../../wallpapers/Anime-Purple-eyes.png;
+  # stylixImage = ../../wallpapers/mountainscapedark.jpg;
+  # stylixImage = ../../wallpapers/AnimeGirlNightSky.jpg;
+  # stylixImage = ../../wallpapers/Anime-Purple-eyes.png;
   #stylixImage = ../../wallpapers/Rainnight.jpg;
   #stylixImage = ../../wallpapers/zaney-wallpaper.jpg;
   #stylixImage = ../../wallpapers/nix-wallpapers-strips-logo.jpg;
   #stylixImage = ../../wallpapers/beautifulmountainscape.jpg;
+  stylixImage = ../../1.png;
 
   # Set Waybar
   #  Available Options:
