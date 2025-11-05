@@ -53,6 +53,7 @@ in
     ./zoxide.nix
     ./zsh
     ./zen.nix
+    ./opencode.nix
   ]
   ++ (if helixEnable then [ ./evil-helix.nix ] else [ ])
   ++ (if vscodeEnable then [ ./vscode.nix ] else [ ])

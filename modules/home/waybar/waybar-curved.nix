@@ -265,7 +265,7 @@ with lib; {
           border-radius: 0px 0px 40px 0px;
         }
         #custom-hyprbindings, #network, #battery,
-        #custom-notification, #tray, #custom-exit {
+        #custom-notification, #tray, #custom-exit, #custom-expressvpn {
           font-weight: bold;
           background: #${config.lib.stylix.colors.base0F};
           color: #${config.lib.stylix.colors.base00};
@@ -284,14 +284,14 @@ with lib; {
         }
 
 
-        
+
             #custom-expressvpn.connected {
-          color: #${config.lib.stylix.colors.base0B};
+          color: #${config.lib.stylix.colors.base07};
 
         }
 
         #custom-expressvpn.disconnected {
-          color: #${config.lib.stylix.colors.base08};
+          color: red;
         }
 
 

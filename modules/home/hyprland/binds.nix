@@ -4,11 +4,12 @@ let
     (import ../../../hosts/${host}/variables.nix)
     browser
     terminal
+    editor
     ;
 in
 {
-  wayland.windowManager.hyprland.settings = {
-
+  wayland.windowManager.hyprland = {
+    settings = {
     bind = [
       "$modifier,Return,exec,${terminal}"
       "$modifier,K,exec,list-keybinds"
@@ -19,7 +20,9 @@ in
       "$modifier SHIFT,N,exec,swaync-client -rs"
       "$modifier,W,exec,${browser}"
       "$modifier,Y,exec,${terminal} -e yazi"
-      "$modifier,E,exec,emopicker9000"
+      # "$modifier,E,exec,emopicker9000"
+       "$modifier,E,exec,${editor}"
+
       "$modifier,S,exec,screenshootin"
       # "$modifier,D,exec,discord"
       # "$modifier,O,exec,obs"
@@ -99,33 +102,12 @@ in
       ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
        # keyboard brightness enable below
       "$modifier,F12,exec,toggle-kb-backlight" # Mod+F12 runs the script we just added
-    ];
 
+    ];
     bindm = [
       "$modifier, mouse:272, movewindow"
       "$modifier, mouse:273, resizewindow"
     ];
-
-    extraConfig = ''
-      # Switch to a submap called `resize`.
-      bind = ALT, R, submap, resize
-
-      # Start a submap called "resize".
-      submap = resize
-
-      # Set repeatable binds for resizing the active window.
-      binde = , right, resizeactive, 10 0
-      binde = , left, resizeactive, -10 0
-      binde = , up, resizeactive, 0 -10
-      binde = , down, resizeactive, 0 10
-
-      # Use `reset` to go back to the global submap
-      bind = , escape, submap, reset
-
-      # Reset the submap, which will return to the global submap
-      submap = reset
-
-      # Keybinds further down will be global again...
-    '';
   };
+};
 }

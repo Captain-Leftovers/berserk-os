@@ -20,6 +20,11 @@
   #To install: Enable here, zcli rebuild, then run zcli doom install
   doomEmacsEnable = false;
 
+
+  #EDITOR
+  editor = "zeditor";
+
+
   # Hyprland Settings
   # Examples:
   # extraMonitorSettings = "monitor = Virtual-1,1920x1080@60,auto,1";
