@@ -2,10 +2,8 @@
 {
   home.packages = with pkgs; [
     # Add your packages here
-    opencode
+    unstable.opencode
   ];
 
-  opencode = {
-    enable = true;
-  };
+
 }
