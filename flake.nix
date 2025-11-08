@@ -45,11 +45,13 @@
     host = "berserk";
     profile = "amd";
       username = "beeondweb";
+      flakeRoot = toString ./.;
 
       # Deduplicate nixosConfigurations while preserving the top-level 'profile'
       mkNixosConfig = gpuProfile: nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
+          inherit flakeRoot;
           inherit inputs;
           inherit username;
           inherit host;

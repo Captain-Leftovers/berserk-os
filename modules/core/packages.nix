@@ -70,6 +70,8 @@
     nix-du
     nix-init
     nil
+    statix
+    deadnix
 
     nwg-displays # configure monitor configs via GUI
     onefetch # provides zsaneyos build info on current system
@@ -90,6 +92,7 @@
     warp-terminal # Terminal with AI support build in
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
+    jq # JSON Processor
 
     # Unstable channel for selectively pulling newer packages when needed.
     unstable.zed-editor
