@@ -65,6 +65,7 @@
 
     # Nix specific
     nixfmt-rfc-style # Nix Formatter
+    alejandra # Nix Language Formatter
     nixd
     nix-ld
     nix-du
