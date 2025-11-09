@@ -54,7 +54,7 @@ in
     ./zsh
     ./zen.nix
     ./opencode.nix
-    ./zed-editor
+    ./editors/zed-editor
   ]
   ++ (if helixEnable then [ ./evil-helix.nix ] else [ ])
   ++ (if vscodeEnable then [ ./vscode.nix ] else [ ])
