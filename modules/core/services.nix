@@ -1,4 +1,4 @@
-{ profile, ... }: {
+{profile, ...}: {
   # Services to start
   services = {
     libinput.enable = true; # Input Handling
@@ -11,12 +11,11 @@
         PasswordAuthentication = true; #Users can SSH using kb and password
         KbdInteractiveAuthentication = true;
       };
-      ports = [ 22 ];
+      ports = [22];
     };
     blueman.enable = true; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
     gnome.gnome-keyring.enable = true;
-
     smartd = {
       enable =
         if profile == "vm"
@@ -55,3 +54,89 @@
     };
   };
 }
+# #SECTION
+# {profile, ...}: {
+#   # Services to start
+#   services = {
+#     libinput.enable = true; # Input Handling
+#     fstrim.enable = true; # SSD Optimizer
+#     gvfs.enable = true; # For Mounting USB & More
+#     openssh = {
+#       enable = true; # Enable SSH
+#       settings = {
+#         PermitRootLogin = "no"; # Prevent root from SSH login
+#         PasswordAuthentication = true; # Users can SSH using kb and password
+#         KbdInteractiveAuthentication = true;
+#       };
+#       ports = [22];
+#     };
+#     blueman.enable = true; # Bluetooth Support
+#     tumbler.enable = true; # Image/video preview
+#     gnome.gnome-keyring.enable = true;
+#     smartd = {
+#       enable =
+#         if profile == "vm"
+#         then false
+#         else true;
+#       autodetect = true;
+#     };
+#     pipewire = {
+#       enable = true;
+#       alsa.enable = true;
+#       alsa.support32Bit = true;
+#       pulse.enable = true;
+#       jack.enable = true;
+#       extraConfig.pipewire."92-low-latency" = {
+#         "context.properties" = {
+#           "default.clock.rate" = 48000;
+#           "default.clock.quantum" = 256;
+#           "default.clock.min-quantum" = 256;
+#           "default.clock.max-quantum" = 256;
+#         };
+#       };
+#       extraConfig.pipewire-pulse."92-low-latency" = {
+#         context.modules = [
+#           {
+#             name = "libpipewire-module-protocol-pulse";
+#             args = {
+#               pulse.min.req = "256/48000";
+#               pulse.default.req = "256/48000";
+#               pulse.max.req = "256/48000";
+#               pulse.min.quantum = "256/48000";
+#               pulse.max.quantum = "256/48000";
+#             };
+#           }
+#         ];
+#       };
+#       # 🔊 WirePlumber Bluetooth auto-switch
+#       wireplumber = {
+#         enable = true;
+#         extraConfig."90-bluetooth-autoswitch" = {
+#           "monitor.bluez.rules" = [
+#             {
+#               matches = [
+#                 {"device.name" = "~bluez_card.*";}
+#               ];
+#               actions = {
+#                 update-props = {
+#                   # Auto-connect Bluetooth audio profiles
+#                   "bluez5.auto-connect" = [
+#                     "hfp_hf"
+#                     "hsp_hs"
+#                     "a2dp_sink"
+#                   ];
+#                   # Raise priority so BT becomes default
+#                   "priority.session" = 200;
+#                   "priority.driver" = 200;
+#                 };
+#               };
+#             }
+#           ];
+#         };
+#       };
+#     };
+#   };
+# }
+# # SECTION
+# #
+
