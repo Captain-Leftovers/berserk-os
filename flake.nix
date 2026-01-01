@@ -1,16 +1,14 @@
-
 {
   description = "BerserkOS";
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
 
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.05";
@@ -30,25 +28,23 @@
     };
   };
 
-  outputs =
-    {
-
-      nixpkgs,
-      home-manager,
-      nix-flatpak,
-      quickshell,
-      zen-browser,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nix-flatpak,
+    quickshell,
+    zen-browser,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
     host = "berserk";
     profile = "amd";
-      username = "beeondweb";
-      flakeRoot = toString ./.;
+    username = "beeondweb";
+    flakeRoot = toString ./.;
 
-      # Deduplicate nixosConfigurations while preserving the top-level 'profile'
-      mkNixosConfig = gpuProfile: nixpkgs.lib.nixosSystem {
+    # Deduplicate nixosConfigurations while preserving the top-level 'profile'
+    mkNixosConfig = gpuProfile:
+      nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit flakeRoot;
@@ -60,23 +56,20 @@
         modules = [
           ./modules/overlays
           ./profiles/${gpuProfile}
-         nix-flatpak.nixosModules.nix-flatpak
-         {
-          nixpkgs.config.allowUnfree = true;
-          home-manager.users.${username}.nixpkgs.config.allowUnfree = true;
-  }
-
+          nix-flatpak.nixosModules.nix-flatpak
+          {
+            nixpkgs.config.allowUnfree = true;
+            home-manager.users.${username}.nixpkgs.config.allowUnfree = true;
+          }
         ];
       };
-    in
-    {
-      nixosConfigurations = {
-        amd = mkNixosConfig "amd";
-        nvidia = mkNixosConfig "nvidia";
-        nvidia-laptop = mkNixosConfig "nvidia-laptop";
-        intel = mkNixosConfig "intel";
-        vm = mkNixosConfig "vm";
-      };
-
+  in {
+    nixosConfigurations = {
+      amd = mkNixosConfig "amd";
+      nvidia = mkNixosConfig "nvidia";
+      nvidia-laptop = mkNixosConfig "nvidia-laptop";
+      intel = mkNixosConfig "intel";
+      vm = mkNixosConfig "vm";
     };
+  };
 }
