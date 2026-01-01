@@ -3,8 +3,7 @@
   inputs,
   nixpkgs,
   ...
-}:
-{
+}: {
   programs = {
     neovim = {
       enable = true;
@@ -49,8 +48,9 @@
     gedit # Simple Graphical Text Editor
     #gemini-cli # CLI AI client ONLY (optional)
     gimp # Great Photo Editor
-    glxinfo # needed for inxi diag util
-    greetd.tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
+    # glxinfo needed for inxi diag util - repaced by below
+    mesa-demos
+    tuigreet # The Login Manager (Sometimes Referred To As Display Manager)
     htop # Simple Terminal Based System Monitor
     hyprpicker # Color Picker
     eog # For Image Viewing

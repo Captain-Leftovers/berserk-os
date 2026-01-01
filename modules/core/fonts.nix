@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       dejavu_fonts
@@ -16,7 +15,7 @@
       nerd-fonts.im-writing
       nerd-fonts.blex-mono
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-monochrome-emoji
