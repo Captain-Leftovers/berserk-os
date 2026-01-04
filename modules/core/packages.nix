@@ -94,6 +94,7 @@
     wget # Tool For Fetching Files With Links
     ytmdl # Tool For Downloading Audio From YouTube
     jq # JSON Processor
+    gsimplecal # Simple Calendar Application
 
     # Unstable channel for selectively pulling newer packages when needed.
     unstable.zed-editor

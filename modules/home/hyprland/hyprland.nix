@@ -1,17 +1,16 @@
-{ host
-, config
-, pkgs
-, ...
-}:
-let
+{
+  host,
+  config,
+  pkgs,
+  ...
+}: let
   inherit
     (import ../../../hosts/${host}/variables.nix)
     extraMonitorSettings
     keyboardLayout
     stylixImage
     ;
-in
-{
+in {
   home.packages = with pkgs; [
     swww
     grim
@@ -40,7 +39,7 @@ in
     systemd = {
       enable = true;
       enableXdgAutostart = true;
-      variables = [ "--all" ];
+      variables = ["--all"];
     };
     xwayland = {
       enable = true;
@@ -65,8 +64,8 @@ in
       };
 
       gestures = {
-        workspace_swipe = 1;
-        workspace_swipe_fingers = 3;
+        # workspace_swipe = 1;
+        # workspace_swipe_fingers = 3;
         workspace_swipe_distance = 500;
         workspace_swipe_invert = 1;
         workspace_swipe_min_speed_to_force = 30;
