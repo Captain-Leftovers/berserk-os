@@ -95,6 +95,8 @@
     ytmdl # Tool For Downloading Audio From YouTube
     jq # JSON Processor
     gsimplecal # Simple Calendar Application
+    gparted
+    gvfs
 
     # Unstable channel for selectively pulling newer packages when needed.
     unstable.zed-editor
