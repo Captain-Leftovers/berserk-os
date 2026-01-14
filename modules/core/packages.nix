@@ -96,6 +96,8 @@
     jq # JSON Processor
     gsimplecal # Simple Calendar Application
     formatter
+    sticky-notes # Sticky notes app
+
     # Unstable channel for selectively pulling newer packages when needed.
     unstable.zed-editor
   ];
