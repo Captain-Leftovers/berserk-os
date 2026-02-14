@@ -56,6 +56,7 @@ in {
       ./zen.nix
       ./opencode.nix
       ./editors/zed-editor
+      ./libreoffice.nix
     ]
     ++ (
       if helixEnable
