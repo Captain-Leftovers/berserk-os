@@ -33,7 +33,7 @@ in {
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
-    #    ./expressvpn-system.nix
+    ./expressvpn-system.nix
     ./nixpkgs.nix
     inputs.stylix.nixosModules.stylix
   ];
