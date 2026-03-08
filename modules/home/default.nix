@@ -21,7 +21,7 @@ in {
       ./bottom.nix
       ./cava.nix
       ./emoji.nix
-      ./expressvpn.nix
+      #      ./expressvpn.nix
       ./eza.nix
       ./fastfetch
       ./fzf.nix
@@ -53,7 +53,7 @@ in {
       ./yazi
       ./zoxide.nix
       ./zsh
-      ./zen.nix
+      #  ./zen.nix
       ./opencode.nix
       ./editors/zed-editor
       ./libreoffice.nix

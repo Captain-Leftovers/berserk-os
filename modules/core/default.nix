@@ -2,12 +2,10 @@
   inputs,
   host,
   ...
-}:
-let
+}: let
   # Import the host-specific variables.nix
   vars = import ../../hosts/${host}/variables.nix;
-in
-{
+in {
   imports = [
     ./boot.nix
     ./flatpak.nix
@@ -20,7 +18,11 @@ in
     ./packages.nix
     ./printing.nix
     # Conditionally import the display manager module
-    (if vars.displayManager == "tui" then ./greetd.nix else ./sddm.nix)
+    (
+      if vars.displayManager == "tui"
+      then ./greetd.nix
+      else ./sddm.nix
+    )
     ./security.nix
     ./services.nix
     ./steam.nix
@@ -31,7 +33,7 @@ in
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
-    ./expressvpn-system.nix
+    #    ./expressvpn-system.nix
     ./nixpkgs.nix
     inputs.stylix.nixosModules.stylix
   ];
