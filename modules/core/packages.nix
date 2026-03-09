@@ -97,8 +97,13 @@
     gsimplecal # Simple Calendar Application
     formatter
     sticky-notes # Sticky notes app
-
+    magic-wormhole # Secure file transfer over the internet
+    obsidian # Markdown note-taking app
+    # localsend # Local network file transfer over Wi-Fi
     # Unstable channel for selectively pulling newer packages when needed.
     unstable.zed-editor
+
+    # Pre Alpha
+    # ladybird # Browser in pre alpha stage
   ];
 }
