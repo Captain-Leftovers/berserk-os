@@ -1,14 +1,7 @@
 {
-
-
-
-
   # Git Configuration ( For Pulling Software Repos )
   gitUsername = "beeondweb";
   gitEmail = "beeondweb@gmail.com";
-
-
-
 
   # Set Displau Manager
   # `tui` for Text login
@@ -27,10 +20,8 @@
   #To install: Enable here, zcli rebuild, then run zcli doom install
   doomEmacsEnable = false;
 
-
   #EDITOR
   editor = "zeditor";
-
 
   # Hyprland Settings
   # Examples:
@@ -55,7 +46,7 @@
   # You need to install it by adding it to the `packages.nix`
   # or as a flatpak
   # browser = "brave";
-  browser = "zen";
+  browser = "zen-beta";
 
   # Available Options:
   # Kitty, ghostty, wezterm, aalacrity
