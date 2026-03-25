@@ -26,14 +26,17 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #install affinity v3
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    nix-flatpak,
     quickshell,
     zen-browser,
+    affinity-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
