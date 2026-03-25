@@ -32,6 +32,8 @@ in {
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
+    ./touchpad-libinput.nix
+
     # ./expressvpn-system.nix
     ./nixpkgs.nix
     inputs.stylix.nixosModules.stylix
