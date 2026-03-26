@@ -32,7 +32,7 @@ in {
     ./user.nix
     ./virtualisation.nix
     ./xserver.nix
-
+    ./onlyoffice.nix
     # ./expressvpn-system.nix
     ./nixpkgs.nix
     inputs.stylix.nixosModules.stylix
