@@ -4,7 +4,5 @@
   pkgs,
   ...
 }: {
-  services.onlyoffice = {
-    enable = true;
-  };
+  environment.systemPackages = [pkgs.onlyoffice-desktopeditors];
 }
