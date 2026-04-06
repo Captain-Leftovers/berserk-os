@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home.pkgs = with pkgs; [
+{pkgs, ...}: {
+  home.packages = with pkgs; [
     zeal
   ];
 }
