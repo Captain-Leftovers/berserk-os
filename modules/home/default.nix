@@ -13,6 +13,7 @@
 in {
   imports =
     [
+      ./programs.nix
       ./amfora.nix
       ./bash.nix
       ./bashrc-personal.nix
