@@ -7,7 +7,6 @@
   vars = import ../../hosts/${host}/variables.nix;
 in {
   imports = [
-    ./tlp-pd-power-profiles.nix
     ./boot.nix
     ./fonts.nix
     ./hardware.nix
