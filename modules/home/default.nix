@@ -13,6 +13,7 @@
 in {
   imports =
     [
+      ./caelestia-shell.nix
       ./programs.nix
       ./amfora.nix
       ./bash.nix
