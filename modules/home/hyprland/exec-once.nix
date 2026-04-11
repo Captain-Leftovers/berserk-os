@@ -1,11 +1,9 @@
-{ host, ... }:
-let
+{host, ...}: let
   inherit
     (import ../../../hosts/${host}/variables.nix)
     stylixImage
     ;
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "wl-paste --type text --watch cliphist store" # Saves text
@@ -16,7 +14,8 @@ in
       "systemctl --user start hyprpolkitagent"
 
       "killall -q swww;sleep .5 && swww-daemon"
-      "killall -q waybar;sleep .5 && waybar"
+      # "killall -q waybar;sleep .5 && waybar"
+      "killall -q caelestia-shell;sleep .5 && caelestia-shell"
       "killall -q swaync;sleep .5 && swaync"
       "#wallsetter &"
       "pypr &"
