@@ -1,6 +1,8 @@
 {profile, ...}: {
   # Services to start
   services = {
+    upower.enable = true; # Power Management
+
     libinput.enable = true; # Input Handling
     fstrim.enable = true; # SSD Optimizer
     gvfs.enable = true; # For Mounting USB & More
@@ -13,7 +15,7 @@
       };
       ports = [22];
     };
-    blueman.enable = true; # Bluetooth Support
+    blueman.enable = false; # Bluetooth Support
     tumbler.enable = true; # Image/video preview
     gnome.gnome-keyring.enable = true;
     smartd = {

@@ -13,6 +13,7 @@
 in {
   imports =
     [
+      ./home-manager.nix
       ./caelestia-shell.nix
       ./programs.nix
       ./amfora.nix
