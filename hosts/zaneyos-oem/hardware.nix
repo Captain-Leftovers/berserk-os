@@ -42,7 +42,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
-  security.sudo.wheelNeedsPassword = false;
+  # security.sudo.wheelNeedsPassword = false; # Removed: passwordless sudo is a security risk
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

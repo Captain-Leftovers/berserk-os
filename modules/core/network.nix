@@ -22,16 +22,16 @@ in {
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22
-        80
-        443
-        59010
-        59011
-        8080
+        22 # SSH
+        # 80    # HTTP  — uncomment only if running a web server
+        # 443   # HTTPS — uncomment only if running a web server
+        59010 # Sunshine/Moonlight game streaming
+        59011 # Sunshine/Moonlight game streaming
+        # 8080  # Alt HTTP — uncomment only if needed
       ];
       allowedUDPPorts = [
-        59010
-        59011
+        59010 # Sunshine/Moonlight game streaming
+        59011 # Sunshine/Moonlight game streaming
       ];
     };
   };
