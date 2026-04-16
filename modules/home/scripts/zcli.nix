@@ -139,6 +139,12 @@ pkgs.writeShellScriptBin "zcli" ''
   read -r -a BACKUP_FILES <<< "$BACKUP_FILES_STR"
 
   # --- Helper Functions ---
+
+  # Escape special characters for safe use in sed replacement strings
+  sed_escape() {
+    printf '%s' "$1" | ${pkgs.gnused}/bin/sed -e 's/[&/\\]/\\&/g'
+  }
+
   verify_hostname() {
     local current_hostname
     local flake_hostname
@@ -394,7 +400,10 @@ pkgs.writeShellScriptBin "zcli" ''
       extra_args=$(parse_nh_args "$@")
       
       echo "Starting NixOS rebuild for host: $(${pkgs.nettools}/bin/hostname)"
-      if eval "${pkgs.nh}/bin/nh os switch --hostname '$PROFILE' $extra_args"; then
+      # Build args array to avoid eval
+      nh_cmd=(${pkgs.nh}/bin/nh os switch --hostname "$PROFILE")
+      read -r -a nh_extra <<< "$extra_args"
+      if "''${nh_cmd[@]}" "''${nh_extra[@]}"; then
         echo "Rebuild finished successfully"
       else
         echo "Rebuild Failed" >&2
@@ -410,7 +419,10 @@ pkgs.writeShellScriptBin "zcli" ''
       
       echo "Starting NixOS rebuild (boot) for host: $(${pkgs.nettools}/bin/hostname)"
       echo "Note: Configuration will be activated on next reboot"
-      if eval "${pkgs.nh}/bin/nh os boot --hostname '$PROFILE' $extra_args"; then
+      # Build args array to avoid eval
+      nh_cmd=(${pkgs.nh}/bin/nh os boot --hostname "$PROFILE")
+      read -r -a nh_extra <<< "$extra_args"
+      if "''${nh_cmd[@]}" "''${nh_extra[@]}"; then
         echo "Rebuild-boot finished successfully"
         echo "New configuration set as boot default - restart to activate"
       else
@@ -438,7 +450,10 @@ pkgs.writeShellScriptBin "zcli" ''
       extra_args=$(parse_nh_args "$@")
       
       echo "Updating flake and rebuilding system for host: $(${pkgs.nettools}/bin/hostname)"
-      if eval "${pkgs.nh}/bin/nh os switch --hostname '$PROFILE' --update $extra_args"; then
+      # Build args array to avoid eval
+      nh_cmd=(${pkgs.nh}/bin/nh os switch --hostname "$PROFILE" --update)
+      read -r -a nh_extra <<< "$extra_args"
+      if "''${nh_cmd[@]}" "''${nh_extra[@]}"; then
         echo "Update and rebuild finished successfully"
       else
         echo "Update and rebuild Failed" >&2
@@ -473,7 +488,8 @@ pkgs.writeShellScriptBin "zcli" ''
       echo "Updating $FLAKE_NIX_PATH..."
 
       # Update host
-      if ${pkgs.gnused}/bin/sed -i "s/^[[:space:]]*host[[:space:]]*=[[:space:]]*\".*\"/    host = \"$target_hostname\"/" "$FLAKE_NIX_PATH"; then
+      escaped_hostname=$(sed_escape "$target_hostname")
+      if ${pkgs.gnused}/bin/sed -i "s/^[[:space:]]*host[[:space:]]*=[[:space:]]*\".*\"/    host = \"$escaped_hostname\"/" "$FLAKE_NIX_PATH"; then
         echo "Successfully updated host to: $target_hostname"
       else
         echo "Error: Failed to update host in $FLAKE_NIX_PATH" >&2
@@ -481,7 +497,8 @@ pkgs.writeShellScriptBin "zcli" ''
       fi
 
       # Update profile
-      if ${pkgs.gnused}/bin/sed -i "s/^[[:space:]]*profile[[:space:]]*=[[:space:]]*\".*\"/    profile = \"$target_profile\"/" "$FLAKE_NIX_PATH"; then
+      escaped_profile=$(sed_escape "$target_profile")
+      if ${pkgs.gnused}/bin/sed -i "s/^[[:space:]]*profile[[:space:]]*=[[:space:]]*\".*\"/    profile = \"$escaped_profile\"/" "$FLAKE_NIX_PATH"; then
         echo "Successfully updated profile to: $target_profile"
       else
         echo "Error: Failed to update profile in $FLAKE_NIX_PATH" >&2
@@ -533,7 +550,8 @@ pkgs.writeShellScriptBin "zcli" ''
       fi
 
       echo "Setting profile to '$detected_profile'..."
-      ${pkgs.gnused}/bin/sed -i "s/profile = .*/profile = \"$detected_profile\";/" "$HOME/$PROJECT/hosts/$hostname/default.nix"
+      escaped_det_profile=$(sed_escape "$detected_profile")
+      ${pkgs.gnused}/bin/sed -i "s/profile = .*/profile = \"$escaped_det_profile\";/" "$HOME/$PROJECT/hosts/$hostname/default.nix"
 
       read -p "Generate new hardware.nix? (y/n) " -n 1 -r
       echo
