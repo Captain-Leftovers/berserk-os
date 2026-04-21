@@ -99,7 +99,7 @@ in {
         ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
         ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
         # keyboard brightness enable below
-        "XF86Favorites,F12,exec,toggle-kb-backlight" # Mod+F12 runs the script we just added
+        "$modifier,F12,exec,toggle-kb-backlight" # Mod+F12 runs the script we just added
       ];
       bindm = [
         "$modifier, mouse:272, movewindow"

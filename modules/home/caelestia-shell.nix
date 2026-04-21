@@ -12,7 +12,7 @@
     };
     settings = {
       bar.status = {
-        showBattery = false;
+        showBattery = true;
       };
       paths.wallpaperDir = "~/Images";
     };
