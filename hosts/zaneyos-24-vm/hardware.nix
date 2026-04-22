@@ -37,5 +37,5 @@
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  security.sudo.wheelNeedsPassword = false;
+  # security.sudo.wheelNeedsPassword = false; # Removed: passwordless sudo is a security risk
 }
