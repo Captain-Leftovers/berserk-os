@@ -18,7 +18,6 @@
 
     # Opencode
     opencode.url = "github:anomalyco/opencode";
-    opencode.inputs.nixpkgs.follows = "nixpkgs"; # avoids duplicate nixpkgs
 
     nvf.url = "github:notashelf/nvf";
     stylix.url = "github:danth/stylix/release-25.11";
